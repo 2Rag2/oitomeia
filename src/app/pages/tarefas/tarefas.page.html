@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>tarefas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    
+  
+    <ion-item-sliding *ngFor="let tarefa of tarefas">
+      <ion-item button (click)="abrirOpcoes(tarefa)">
+          <ion-label *ngIf="!tarefa.feito"> {{tarefa.nome}}</ion-label>
+          <ion-icon *ngIf="!tarefa.feito" name="radio-button-off" color="success"></ion-icon>
+          <ion-label *ngIf="tarefa.feito"><del>{{tarefa.nome}}</del></ion-label>
+          <ion-icon *ngIf="tarefa.feito" name="checkmark-circle" color="success"></ion-icon>
+        </ion-item>
+        <ion-item-options side="start">
+          <ion-item-option color="danger" (click)="excluir(tarefa)">Excluir</ion-item-option>
+        </ion-item-options>
+    </ion-item-sliding>
+  
+    
+  </ion-list>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secondary" (click)="addTarefa()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

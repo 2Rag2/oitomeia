@@ -10,7 +10,25 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('./pages/user/user.module').then( m => m.UserPageModule)
+  },
+  {
+    path: 'tarefas',
+    loadChildren: () => import('./pages/tarefas/tarefas.module').then( m => m.TarefasPageModule)
+  },
+  {
+    path: 'list-users',
+    loadChildren: () => import('./pages/list-users/list-users.module').then( m => m.ListUsersPageModule)
+  },
+  {
+    path: 'cep',
+    loadChildren: () => import('./pages/cep/cep.module').then( m => m.CepPageModule)
+  },
+  
+    
 ];
 
 @NgModule({
